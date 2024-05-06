@@ -1,5 +1,5 @@
 - name: docker build and push
-  hosts: 54.208.38.177  
+  hosts: localhost 
   become: yes  
 
   tasks:
