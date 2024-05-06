@@ -1,6 +1,6 @@
 - name: docker build and push
-  hosts: local  # Replace with the hostname or IP address of your target server
-  become: yes  # Run tasks with sudo privileges
+  hosts: ubuntu  
+  become: yes  
 
   tasks:
     - name: Update apt package cache
@@ -13,16 +13,16 @@
         chdir: /var/lib/jenkins/workspace/petstore
 
     - name: tag image
-      command: docker tag petstore:latest sevenajay/petstore:latest 
+      command: docker tag petstore:latest ankitap1219/petstore:latest 
 
     - name: Log in to Docker Hub
       community.docker.docker_login:
         registry_url: https://index.docker.io/v1/
-        username: dockerhub username
-        password: dockerhub password/PAT
+        username: ankitap1219
+        password: 3YM-F6gGVdbx15130H5eyO116rY
 
     - name: Push image
-      command: docker push sevenajay/petstore:latest
+      command: docker push ankitap1219/petstore:latest
 
     - name: Run container
-      command: docker run -d --name pet1 -p 8081:8080 sevenajay/petstore:latest
+      command: docker run -d --name pet1 -p 8081:8080 ankitap1219/petstore:latest
