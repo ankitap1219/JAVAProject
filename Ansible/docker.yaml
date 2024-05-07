@@ -1,7 +1,5 @@
 - name: docker build and push
-  hosts: localhost
-  gather_facts: false
-  become: yes  
+  hosts: localhost 
 
   tasks:
     - name: Update apt package cache
